@@ -1792,6 +1792,14 @@ textarea,
   box-shadow: none;
 }
 
+/* Keep the selected-work layout precise and architectural. */
+.project-card,
+.project-card::before,
+.project-image,
+.project-image img {
+  border-radius: 0;
+}
+
 .footer-grid img {
   width: 120px;
   height: 72px;

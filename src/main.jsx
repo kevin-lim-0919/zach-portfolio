@@ -422,7 +422,9 @@ function ContactPage() {
               </figure>
               <div className="conversation-intro">
                 <h2>
-                  Let&apos;s build something <span className="title-accent">great together</span>
+                  Let&apos;s{" "}
+                  <span className="title-accent">build something</span> great
+                  together
                 </h2>
                 <p>
                   Have a project in mind? Whether you&apos;re launching a new
@@ -505,13 +507,6 @@ function App() {
                 <a className="primary" href="#work">
                   Explore selected work <ArrowRight />
                 </a>
-                <a
-                  className="text-link"
-                  href="/Zachary-Rosenberg-Resume.pdf"
-                  target="_blank"
-                >
-                  View résumé <ArrowUpRight />
-                </a>
               </div>
               <small>
                 No pitch deck required. Start with the problem you need to
@@ -553,7 +548,8 @@ function App() {
               <div>
                 <span className="eyebrow">Where I help</span>
                 <h2>
-                  Move past the <span className="title-accent">technology backlog</span>
+                  <span className="title-accent">Move past</span> the technology
+                  backlog
                 </h2>
               </div>
               <p>
@@ -583,8 +579,9 @@ function App() {
               <div>
                 <span className="eyebrow">What I do</span>
                 <h2>
-                  Close enough to understand. {" "}
-                  <span className="title-accent">Experienced enough to ship</span>
+                  Close enough to{" "}
+                  <span className="title-accent">understand</span>. Experienced
+                  enough to <span className="title-accent">ship</span>
                 </h2>
               </div>
             </div>
@@ -613,8 +610,8 @@ function App() {
               <div>
                 <span className="eyebrow">How I work</span>
                 <h2>
-                  A clear route from complexity to a {" "}
-                  <span className="title-accent">system your team can own</span>
+                  A <span className="title-accent">clear route</span> from
+                  complexity to a system your team can own
                 </h2>
               </div>
               <a className="text-link" href={`mailto:${contactEmail}`}>
@@ -659,8 +656,8 @@ function App() {
               <div>
                 <span className="eyebrow">Selected work</span>
                 <h2>
-                  A closer look at systems {" "}
-                  <span className="title-accent">built for the real world</span>
+                  A closer look at <span className="title-accent">systems</span>{" "}
+                  built for the real world
                 </h2>
               </div>
               <p>
