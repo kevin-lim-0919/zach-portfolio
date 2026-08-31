@@ -331,6 +331,9 @@ textarea,
 .contact h2 {
   text-wrap: balance;
 }
+.title-accent {
+  color: #238be8;
+}
 .principle-grid article {
   position: relative;
   overflow: hidden;

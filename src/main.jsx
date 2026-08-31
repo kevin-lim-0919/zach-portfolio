@@ -421,7 +421,9 @@ function ContactPage() {
                 <figcaption>Principal Software Architect</figcaption>
               </figure>
               <div className="conversation-intro">
-                <h2>Let&apos;s build something great together.</h2>
+                <h2>
+                  Let&apos;s build something <span className="title-accent">great together</span>
+                </h2>
                 <p>
                   Have a project in mind? Whether you&apos;re launching a new
                   application, modernizing your technology stack, or bringing a
@@ -492,7 +494,7 @@ function App() {
                 Zachary Rosenberg · Principal Software Architect
               </div>
               <h1>
-                Turn complex systems into <em>useful software.</em>
+                Turn <em>complex</em> systems into useful software
               </h1>
               <p>
                 I help organizations design, build, and operate reliable
@@ -550,7 +552,9 @@ function App() {
             <div className="section-intro reveal">
               <div>
                 <span className="eyebrow">Where I help</span>
-                <h2>Move past the technology backlog.</h2>
+                <h2>
+                  Move past the <span className="title-accent">technology backlog</span>
+                </h2>
               </div>
               <p>
                 The hard part is not finding another technology. It is choosing
@@ -578,7 +582,10 @@ function App() {
             <div className="section-intro light reveal">
               <div>
                 <span className="eyebrow">What I do</span>
-                <h2>Close enough to understand. Experienced enough to ship.</h2>
+                <h2>
+                  Close enough to understand. {" "}
+                  <span className="title-accent">Experienced enough to ship</span>
+                </h2>
               </div>
             </div>
             <div className="service-grid">
@@ -606,7 +613,8 @@ function App() {
               <div>
                 <span className="eyebrow">How I work</span>
                 <h2>
-                  A clear route from complexity to a system your team can own.
+                  A clear route from complexity to a {" "}
+                  <span className="title-accent">system your team can own</span>
                 </h2>
               </div>
               <a className="text-link" href={`mailto:${contactEmail}`}>
@@ -650,7 +658,10 @@ function App() {
             <div className="section-intro reveal">
               <div>
                 <span className="eyebrow">Selected work</span>
-                <h2>A closer look at systems built for the real world.</h2>
+                <h2>
+                  A closer look at systems {" "}
+                  <span className="title-accent">built for the real world</span>
+                </h2>
               </div>
               <p>
                 Selected platforms across mortgage technology, automotive
