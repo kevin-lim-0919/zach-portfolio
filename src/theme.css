@@ -1671,6 +1671,93 @@ textarea,
   }
 }
 
+/* Opportunity rows use the site's direct technical typography. */
+.opportunities div {
+  font-family: "Barlow Condensed", Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Refined version of the original open case-study masthead. */
+.reference-project-hero {
+  align-items: start;
+}
+.reference-project-intro {
+  min-height: 520px;
+  padding: 8px 24px 24px 8px;
+  display: flex;
+  flex-direction: column;
+}
+.reference-project-intro .reference-project-logo {
+  width: 150px;
+  height: 76px;
+  margin: 0 0 52px;
+  align-items: center;
+}
+.reference-project-intro .reference-project-logo img {
+  width: 104px;
+  height: 64px;
+  transform: scale(2.8);
+  transform-origin: left center;
+}
+.reference-project-intro .project-role {
+  margin: 0 0 14px;
+  color: #647184;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.reference-project-intro > h1 {
+  margin: 0;
+  max-width: 420px;
+  font-size: clamp(58px, 5vw, 82px);
+  line-height: 0.95;
+}
+.reference-project .project-back {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: fit-content;
+  margin-top: 74px;
+  padding: 9px 0 7px;
+  border-bottom: 1px solid #1f2a3d3d;
+  font-weight: 700;
+}
+.reference-project .project-back svg {
+  width: 18px;
+  transition: transform 0.2s ease;
+}
+.reference-project .project-back:hover svg {
+  transform: rotate(180deg) translateX(4px);
+}
+.reference-cover img {
+  border-radius: 0;
+}
+[data-theme="dark"] .reference-project .project-back {
+  border-bottom-color: #ffffff42;
+}
+@media (max-width: 992px) {
+  .reference-project-intro {
+    min-height: 380px;
+    padding-right: 0;
+  }
+}
+@media (max-width: 600px) {
+  .reference-project-intro {
+    min-height: 330px;
+    padding: 0;
+  }
+  .reference-project-intro .reference-project-logo {
+    margin-bottom: 36px;
+  }
+  .reference-project .project-back {
+    margin-top: 48px;
+  }
+}
+
 /* Simplified contact page matching the reference layout */
 .conversation-hero {
   display: flex;
