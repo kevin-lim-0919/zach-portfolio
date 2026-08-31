@@ -495,7 +495,7 @@ function App() {
                 Zachary Rosenberg · Principal Software Architect
               </div>
               <h1>
-                Turn <em>complex</em> systems into useful <em>software</em>
+                Turn complex systems into <em>useful software</em>
               </h1>
               <p>
                 I help organizations design, build, and operate reliable
