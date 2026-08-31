@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0d1524" />
+    <meta
+      name="description"
+      content="Zachary Rosenberg is a Principal Software Architect building enterprise platforms, cloud systems, and AI-powered products."
+    />
+    <meta
+      property="og:title"
+      content="Zachary Rosenberg - Principal Software Architect"
+    />
+    <meta
+      property="og:description"
+      content="Enterprise software architecture, cloud platforms, AI systems, and engineering leadership."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/eas-logo.svg" />
+    <link rel="icon" href="/eas.svg" />
+    <title>Zachary Rosenberg - Principal Software Architect</title>
+    <script>
+      document.documentElement.dataset.theme = location.pathname.startsWith(
+        "/projects/",
+      )
+        ? localStorage.getItem("eas-project-theme") || "light"
+        : localStorage.getItem("eas-theme") || "dark";
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#top">Skip to main content</a>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
