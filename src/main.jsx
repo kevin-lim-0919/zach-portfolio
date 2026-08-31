@@ -412,7 +412,7 @@ function ContactPage() {
       <main className="conversation-page" id="top">
         <section className="conversation-hero">
           <div className="shell conversation-shell">
-            <h1 className="contact-page-title">Contact</h1>
+            <h1 className="contact-page-title title-accent">Contact</h1>
             <div className="conversation-grid">
               <figure className="contact-profile">
                 <div className="contact-photo">
@@ -422,9 +422,8 @@ function ContactPage() {
               </figure>
               <div className="conversation-intro">
                 <h2>
-                  Let&apos;s{" "}
-                  <span className="title-accent">build something</span> great
-                  together
+                  Let&apos;s build something great{" "}
+                  <span className="title-accent">together</span>
                 </h2>
                 <p>
                   Have a project in mind? Whether you&apos;re launching a new
