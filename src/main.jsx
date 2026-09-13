@@ -14,8 +14,6 @@ import {
   Database,
   Smartphone,
   Workflow,
-  Sun,
-  Moon,
 } from "lucide-react";
 import "./styles.css";
 import "./theme.css";
@@ -178,16 +176,7 @@ function Header() {
   const [open, setOpen] = useState(false),
     [active, setActive] = useState(""),
     [progress, setProgress] = useState(0),
-    [scrolled, setScrolled] = useState(false),
-    [theme, setTheme] = useState(
-      () => localStorage.getItem("eas-theme") || "dark",
-    );
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    localStorage.setItem("eas-theme", theme);
-    document.querySelector('meta[name="theme-color"]').content =
-      theme === "dark" ? "#0d1524" : "#f5f0e7";
-  }, [theme]);
+    [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     let update = () => {
       let max = document.documentElement.scrollHeight - innerHeight;
@@ -213,28 +202,6 @@ function Header() {
   let nav = (id) => (active === id ? "active" : "");
   return (
     <>
-      <div
-        className="theme-switch floating-theme"
-        role="group"
-        aria-label="Color theme"
-      >
-        <button
-          className={theme === "light" ? "selected" : ""}
-          onClick={() => setTheme("light")}
-          aria-label="Use light mode"
-          aria-pressed={theme === "light"}
-        >
-          <Sun />
-        </button>
-        <button
-          className={theme === "dark" ? "selected" : ""}
-          onClick={() => setTheme("dark")}
-          aria-label="Use dark mode"
-          aria-pressed={theme === "dark"}
-        >
-          <Moon />
-        </button>
-      </div>
       <header className={scrolled ? "scrolled" : ""}>
         <div className="progress" style={{ width: progress + "%" }} />
         <div className="nav-wrap">
@@ -267,53 +234,17 @@ function Header() {
   );
 }
 function ProjectDetail({ project }) {
-  const [projectTheme, setProjectTheme] = useState(
-    () => localStorage.getItem("eas-project-theme") || "light",
-  );
-  useEffect(() => {
-    document.documentElement.dataset.theme = projectTheme;
-    localStorage.setItem("eas-project-theme", projectTheme);
-    document.querySelector('meta[name="theme-color"]').content =
-      projectTheme === "dark" ? "#0d1524" : "#f5f0e7";
-  }, [projectTheme]);
-  const projectThemeControl = (
-    <div
-      className="theme-switch floating-theme"
-      role="group"
-      aria-label="Color theme"
-    >
-      <button
-        className={projectTheme === "light" ? "selected" : ""}
-        onClick={() => setProjectTheme("light")}
-        aria-label="Use light mode"
-        aria-pressed={projectTheme === "light"}
-      >
-        <Sun />
-      </button>
-      <button
-        className={projectTheme === "dark" ? "selected" : ""}
-        onClick={() => setProjectTheme("dark")}
-        aria-label="Use dark mode"
-        aria-pressed={projectTheme === "dark"}
-      >
-        <Moon />
-      </button>
-    </div>
-  );
   if (!project) {
     return (
-      <>
-        {projectThemeControl}
-        <main className="project-detail project-not-found" id="top">
-          <div className="shell">
-            <span className="eyebrow">Project not found</span>
-            <h1>This project page does not exist.</h1>
-            <a className="primary" href="/#work">
-              Return to selected work <ArrowRight />
-            </a>
-          </div>
-        </main>
-      </>
+      <main className="project-detail project-not-found" id="top">
+        <div className="shell">
+          <span className="eyebrow">Project not found</span>
+          <h1>This project page does not exist.</h1>
+          <a className="primary" href="/#work">
+            Return to selected work <ArrowRight />
+          </a>
+        </div>
+      </main>
     );
   }
   const gallery = Array.from(
@@ -321,88 +252,85 @@ function ProjectDetail({ project }) {
     (_, index) => `/projects/${project.slug}-${index + 2}.png`,
   );
   return (
-    <>
-      {projectThemeControl}
-      <main className="project-detail reference-project" id="top">
-        <nav className="reference-nav" aria-label="Project navigation">
-          <a href="/">Home</a>
-          <a className="reference-nav-cta" href="/contact">
-            Start a conversation <ArrowUpRight />
-          </a>
-        </nav>
-        <div className="project-page-shell">
-          <section className="reference-project-hero">
-            <div className="reference-project-intro">
-              <a
-                href="/"
-                className="reference-project-logo"
-                aria-label="Portfolio home"
-              >
-                <img src="/eas.svg" alt="Elemental App Studio" />
-              </a>
-              <div className="project-role">&lt; {project.role} / &gt;</div>
-              <h1>{project.name}</h1>
-              <a className="project-back" href="/#work">
-                <ArrowRight /> Explore Projects
-              </a>
-            </div>
-            <div className="reference-cover">
-              <img src={project.image} alt={project.name} />
-            </div>
-          </section>
-          <section className="reference-project-body">
-            <aside className="reference-details">
-              <h2>Details</h2>
-              <dl>
-                <dt>Client</dt>
-                <dd>{project.client}</dd>
-                <dt>Role</dt>
-                <dd>{project.role}</dd>
-                <dt>Skill Sets</dt>
-                <dd className="project-stack">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </dd>
-                <dt>Timeline</dt>
-                <dd>{project.result}</dd>
-              </dl>
-            </aside>
-            <article className="reference-story">
-              <div className="reference-code">
-                <span className="code-prefix">//</span>
-                <span className="code-value">
-                  {project.codeLine.startsWith("https://") ? (
-                    <>
-                      <b>https://</b>
-                      <em>{project.codeLine.replace("https://", "")}</em>
-                    </>
-                  ) : (
-                    project.codeLine
-                  )}
-                </span>
-              </div>
-              <h2>{project.copy}</h2>
-              <p>{project.detail}</p>
-              <div className="reference-gallery">
-                {gallery.map((image, index) => (
-                  <figure key={image} className="reveal">
-                    <img
-                      src={image}
-                      alt={`${project.name} project view ${index + 2}`}
-                      loading="lazy"
-                    />
-                  </figure>
+    <main className="project-detail reference-project" id="top">
+      <nav className="reference-nav" aria-label="Project navigation">
+        <a href="/">Home</a>
+        <a className="reference-nav-cta" href="/contact">
+          Start a conversation <ArrowUpRight />
+        </a>
+      </nav>
+      <div className="project-page-shell">
+        <section className="reference-project-hero">
+          <div className="reference-project-intro">
+            <a
+              href="/"
+              className="reference-project-logo"
+              aria-label="Portfolio home"
+            >
+              <img src="/eas.svg" alt="Elemental App Studio" />
+            </a>
+            <div className="project-role">&lt; {project.role} / &gt;</div>
+            <h1>{project.name}</h1>
+            <a className="project-back" href="/#work">
+              <ArrowRight /> Explore Projects
+            </a>
+          </div>
+          <div className="reference-cover">
+            <img src={project.image} alt={project.name} />
+          </div>
+        </section>
+        <section className="reference-project-body">
+          <aside className="reference-details">
+            <h2>Details</h2>
+            <dl>
+              <dt>Client</dt>
+              <dd>{project.client}</dd>
+              <dt>Role</dt>
+              <dd>{project.role}</dd>
+              <dt>Skill Sets</dt>
+              <dd className="project-stack">
+                {project.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
                 ))}
-              </div>
-              <p className="reference-deliverables">
-                Skills and deliverables included {project.tags.join(", ")}.
-              </p>
-            </article>
-          </section>
-        </div>
-      </main>
-    </>
+              </dd>
+              <dt>Timeline</dt>
+              <dd>{project.result}</dd>
+            </dl>
+          </aside>
+          <article className="reference-story">
+            <div className="reference-code">
+              <span className="code-prefix">//</span>
+              <span className="code-value">
+                {project.codeLine.startsWith("https://") ? (
+                  <>
+                    <b>https://</b>
+                    <em>{project.codeLine.replace("https://", "")}</em>
+                  </>
+                ) : (
+                  project.codeLine
+                )}
+              </span>
+            </div>
+            <h2>{project.copy}</h2>
+            <p>{project.detail}</p>
+            <div className="reference-gallery">
+              {gallery.map((image, index) => (
+                <figure key={image} className="reveal">
+                  <img
+                    src={image}
+                    alt={`${project.name} project view ${index + 2}`}
+                    loading="lazy"
+                  />
+                </figure>
+              ))}
+            </div>
+            <p className="reference-deliverables">
+              Skills and deliverables included {project.tags.join(", ")}.
+            </p>
+          </article>
+        </section>
+      </div>
+    </main>
   );
 }
 function ContactPage() {
@@ -459,6 +387,10 @@ function ContactPage() {
 }
 function App() {
   useEffect(() => {
+    document.documentElement.dataset.theme = "dark";
+    document.querySelector('meta[name="theme-color"]').content = "#0d1524";
+    localStorage.removeItem("eas-theme");
+    localStorage.removeItem("eas-project-theme");
     let items = document.querySelectorAll(".reveal");
     let observer = new IntersectionObserver(
       (es) =>
